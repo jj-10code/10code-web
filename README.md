@@ -4,10 +4,11 @@ Proyecto web completo con Astro como frontend y Strapi como CMS headless, comple
 
 ## Características
 
-- **Frontend**: Astro 4.x para una web rápida y moderna
-- **Backend/CMS**: Strapi 4.x como headless CMS
-- **Base de Datos**: PostgreSQL 15
-- **Containerización**: Docker y Docker Compose
+- **Frontend**: Astro 5.x para una web rápida y moderna
+- **Backend/CMS**: Strapi 5.x como headless CMS
+- **Base de Datos**: PostgreSQL 16
+- **Node.js**: v20 LTS
+- **Containerización**: Docker y Docker Compose v2
 - **Desarrollo**: Hot reload en ambos servicios
 
 ## Estructura del Proyecto
@@ -350,11 +351,12 @@ docker-compose up -d --build
 
 ## Tecnologías Utilizadas
 
-- [Astro](https://astro.build/) - Framework frontend
-- [Strapi](https://strapi.io/) - Headless CMS
-- [PostgreSQL](https://www.postgresql.org/) - Base de datos
-- [Docker](https://www.docker.com/) - Containerización
-- [TypeScript](https://www.typescriptlang.org/) - Tipado estático
+- [Astro 5.x](https://astro.build/) - Framework frontend de última generación
+- [Strapi 5.x](https://strapi.io/) - Headless CMS con API REST y GraphQL
+- [PostgreSQL 16](https://www.postgresql.org/) - Base de datos relacional
+- [Node.js 20 LTS](https://nodejs.org/) - Runtime de JavaScript
+- [Docker Compose v2](https://www.docker.com/) - Orquestación de contenedores
+- [TypeScript 5.7](https://www.typescriptlang.org/) - Tipado estático para JavaScript
 
 ## Licencia
 

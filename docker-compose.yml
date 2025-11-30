@@ -1,9 +1,7 @@
-version: '3.8'
-
 services:
   # PostgreSQL Database for Strapi
   postgres:
-    image: postgres:15-alpine
+    image: postgres:16-alpine
     container_name: 10code-postgres
     restart: unless-stopped
     environment:
@@ -39,6 +37,9 @@ services:
       ADMIN_JWT_SECRET: changeme_admin_jwt_secret_key_production
       APP_KEYS: changeme_app_key1,changeme_app_key2
       API_TOKEN_SALT: changeme_api_token_salt
+      TRANSFER_TOKEN_SALT: changeme_transfer_token_salt
+      HOST: 0.0.0.0
+      PORT: 1337
     volumes:
       - ./backend:/app
       - /app/node_modules
