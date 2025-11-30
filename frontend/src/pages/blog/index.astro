@@ -1,0 +1,154 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { fetchStrapi } from '../../lib/strapi';
+
+interface Post {
+  id: number;
+  attributes: {
+    title: string;
+    excerpt: string;
+    slug: string;
+    createdAt: string;
+  };
+}
+
+let posts: Post[] = [];
+let error: string | null = null;
+
+try {
+  // Example of fetching posts from Strapi
+  // Uncomment when you have created the Post content type in Strapi
+  // const response = await fetchStrapi<{ data: Post[] }>({
+  //   endpoint: 'posts',
+  //   query: {
+  //     populate: ['author', 'featuredImage', 'categories'],
+  //     sort: ['createdAt:desc'],
+  //   },
+  // });
+  // posts = response.data || [];
+} catch (e) {
+  error = e instanceof Error ? e.message : 'Error al cargar los posts';
+  console.error('Error fetching posts:', e);
+}
+---
+
+<Layout title="Blog - 10code">
+  <h1>Blog</h1>
+
+  {error && (
+    <div class="info-box">
+      <p>⚠️ Strapi aún no está configurado con el tipo de contenido "Posts".</p>
+      <p>Para ver los posts aquí:</p>
+      <ol>
+        <li>Accede a Strapi en <a href="http://localhost:1337/admin" target="_blank">http://localhost:1337/admin</a></li>
+        <li>Crea un Content Type llamado "Post" con los campos: title, excerpt, content, slug, etc.</li>
+        <li>Configura los permisos públicos para el endpoint de posts</li>
+        <li>Crea algunos posts de ejemplo</li>
+        <li>Descomenta el código en este archivo para ver los posts</li>
+      </ol>
+    </div>
+  )}
+
+  {posts.length > 0 && (
+    <div class="posts-grid">
+      {posts.map((post) => (
+        <article class="post-card">
+          <h2>
+            <a href={`/blog/${post.attributes.slug}`}>
+              {post.attributes.title}
+            </a>
+          </h2>
+          <p>{post.attributes.excerpt}</p>
+          <time>{new Date(post.attributes.createdAt).toLocaleDateString('es-ES')}</time>
+        </article>
+      ))}
+    </div>
+  )}
+
+  {!error && posts.length === 0 && (
+    <p class="no-posts">No hay posts disponibles aún.</p>
+  )}
+</Layout>
+
+<style>
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--color-primary);
+  }
+
+  .info-box {
+    background-color: #fff3cd;
+    border: 1px solid #ffc107;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .info-box p {
+    margin-bottom: 1rem;
+  }
+
+  .info-box ol {
+    margin-left: 1.5rem;
+  }
+
+  .info-box li {
+    margin-bottom: 0.5rem;
+  }
+
+  .info-box a {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .post-card {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .post-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .post-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .post-card h2 a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .post-card h2 a:hover {
+    text-decoration: underline;
+  }
+
+  .post-card p {
+    color: #666;
+    margin-bottom: 1rem;
+  }
+
+  .post-card time {
+    color: #999;
+    font-size: 0.9rem;
+  }
+
+  .no-posts {
+    text-align: center;
+    color: #666;
+    font-size: 1.2rem;
+    margin-top: 3rem;
+  }
+</style>

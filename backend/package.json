@@ -1,0 +1,32 @@
+{
+  "name": "10code-backend",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Backend API for 10code website built with Strapi",
+  "scripts": {
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "build": "strapi build",
+    "strapi": "strapi"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "@strapi/strapi": "^4.15.5",
+    "@strapi/plugin-users-permissions": "^4.15.5",
+    "@strapi/plugin-i18n": "^4.15.5",
+    "better-sqlite3": "^9.2.2",
+    "pg": "^8.11.3",
+    "reading-time": "^1.5.0"
+  },
+  "author": {
+    "name": "10code team"
+  },
+  "strapi": {
+    "uuid": "10code-strapi-backend"
+  },
+  "engines": {
+    "node": ">=18.0.0 <=20.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT"
+}

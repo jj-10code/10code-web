@@ -1,0 +1,66 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Servicios - 10code">
+  <h1>Nuestros Servicios</h1>
+
+  <div class="services-grid">
+    <div class="service-card">
+      <h2>Desarrollo Web</h2>
+      <p>Creamos sitios web modernos y responsivos utilizando las últimas tecnologías como Astro, React, y más.</p>
+    </div>
+
+    <div class="service-card">
+      <h2>Aplicaciones Web</h2>
+      <p>Desarrollamos aplicaciones web completas con backends robustos usando Strapi, Node.js y bases de datos escalables.</p>
+    </div>
+
+    <div class="service-card">
+      <h2>E-commerce</h2>
+      <p>Soluciones de comercio electrónico personalizadas para llevar tu negocio al siguiente nivel.</p>
+    </div>
+
+    <div class="service-card">
+      <h2>Consultoría</h2>
+      <p>Asesoramiento técnico y estratégico para tus proyectos digitales.</p>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--color-primary);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .service-card {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 2rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .service-card h2 {
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+  }
+
+  .service-card p {
+    color: #666;
+    line-height: 1.6;
+  }
+</style>

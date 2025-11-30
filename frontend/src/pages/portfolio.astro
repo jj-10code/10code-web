@@ -1,0 +1,98 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Portfolio - 10code">
+  <h1>Portfolio</h1>
+
+  <div class="info-box">
+    <p>Esta sección mostrará los proyectos desde Strapi.</p>
+    <p>Para configurarlo, crea un Content Type "Project" en Strapi con campos como: title, description, image, url, technologies, etc.</p>
+  </div>
+
+  <div class="portfolio-grid">
+    <div class="project-card">
+      <h2>Proyecto Ejemplo 1</h2>
+      <p>Descripción del proyecto de ejemplo. Este contenido vendrá de Strapi.</p>
+      <div class="tags">
+        <span>Astro</span>
+        <span>Strapi</span>
+        <span>PostgreSQL</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <h2>Proyecto Ejemplo 2</h2>
+      <p>Descripción del proyecto de ejemplo. Este contenido vendrá de Strapi.</p>
+      <div class="tags">
+        <span>React</span>
+        <span>Node.js</span>
+        <span>MongoDB</span>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--color-primary);
+  }
+
+  .info-box {
+    background-color: #e3f2fd;
+    border: 1px solid #2196f3;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .info-box p {
+    margin-bottom: 0.5rem;
+    color: #1565c0;
+  }
+
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .project-card {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 2rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .project-card h2 {
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+  }
+
+  .project-card p {
+    color: #666;
+    margin-bottom: 1rem;
+  }
+
+  .tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .tags span {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+  }
+</style>
