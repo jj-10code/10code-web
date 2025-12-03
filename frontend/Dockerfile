@@ -1,5 +1,8 @@
 FROM node:20-alpine
 
+# Install git (required by some npm dependencies)
+RUN apk add --no-cache git
+
 # Set working directory
 WORKDIR /app
 
